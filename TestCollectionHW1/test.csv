@@ -1,0 +1,21 @@
+Result for 10K
+
+Collection,add,get,remove,contains,populate,iterator.add,iterator.remove
+arrayList,0,0,1,0,0,0,0,
+linkedList,0,0,2,0,0,0,0,
+hashSet,0,3,0,0,0,
+treeSet,0,0,0,0,0,
+Result for 100K
+
+Collection,add,get,remove,contains,populate,iterator.add,iterator.remove
+arrayList,1,0,10,2,1,3,3,
+linkedList,7,4,36,8,1,0,0,
+hashSet,0,3,0,0,2,
+treeSet,0,2,0,0,16,
+Result for 1000K
+
+Collection,add,get,remove,contains,populate,iterator.add,iterator.remove
+arrayList,23,0,169,47,14,53,52,
+linkedList,91,84,520,117,18,0,0,
+hashSet,0,9,0,0,27,
+treeSet,0,22,0,0,252,
