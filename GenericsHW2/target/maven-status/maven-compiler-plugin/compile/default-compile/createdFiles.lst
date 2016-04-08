@@ -1,0 +1,9 @@
+hw2\TaskExecutor\TaskValidatorContainer.class
+hw2\ExecutorInterface\Task.class
+hw2\NumberTask\LongTask.class
+hw2\TaskExecutor\ExecutorImpl.class
+hw2\NumberTask\IntTask.class
+hw2\ExecutorInterface\Validator.class
+hw2\Main.class
+hw2\ExecutorInterface\Executor.class
+hw2\NumberTask\NumberValidator.class

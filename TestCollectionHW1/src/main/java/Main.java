@@ -178,5 +178,6 @@ public class Main {
 
         TestExporter testExporter = new TestExporter();
         testExporter.reportToCsv("test.csv", result10K, result100K, result1000K);
+        System.out.println("Calculations finished.");
     }
 }
