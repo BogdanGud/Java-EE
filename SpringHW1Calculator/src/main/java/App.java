@@ -8,8 +8,7 @@ public class App {
 
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext(
-                "application-context.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
 
         IntegerParser integerParser = (IntegerParser) context.getBean("integerParser");
         DoubleParser doubleParser  = (DoubleParser) context.getBean("doubleParser");
