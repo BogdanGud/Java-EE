@@ -1,0 +1,11 @@
+ua\gojava\calculatorlib\IntegerAdditionOperator.class
+ua\gojava\calculatorlib\OperatorInterface.class
+ua\gojava\calculatorlib\PolishMathParser.class
+ua\gojava\calculatorlib\TokenParserInterface.class
+ua\gojava\calculatorlib\IntegerSubstractionOperator.class
+ua\gojava\calculatorlib\DoubleParser.class
+ua\gojava\calculatorlib\DoubleAdditionOperator.class
+ua\gojava\calculatorlib\DoubleSubstractionOperator.class
+ua\gojava\calculatorlib\IntegerParser.class
+ua\gojava\calculatorlib\MathParser.class
+ua\gojava\calculatorlib\Main.class
