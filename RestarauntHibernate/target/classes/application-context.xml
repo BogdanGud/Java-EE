@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+
+       default-autowire="byName">
+
+    <bean id="main" class="ua.bogdangud.restaraunt.Main"/>
+
+    <bean id="employeeDao" class="ua.bogdangud.restaraunt.dao.HEmployeeDao"/>
+
+    <bean id="positionDao" class="ua.bogdangud.restaraunt.dao.HPositionDao"/>
+
+    <bean id="dishDao" class="ua.bogdangud.restaraunt.dao.HDishDao"/>
+
+    <bean id="categoryDao" class="ua.bogdangud.restaraunt.dao.HCategoryDishDao"/>
+
+
+
+    <bean id="employeeController" class="ua.bogdangud.restaraunt.controllers.EmployeeController">
+        <property name="dao" ref="employeeDao"/>
+        <property name="positionDao" ref="positionDao"/>
+    </bean>
+
+    <bean id="dishController" class="ua.bogdangud.restaraunt.controllers.DishController">
+        <property name="dao" ref="dishDao"/>
+        <property name="categoryDish" ref="categoryDao"/>
+    </bean>
+
+    <bean id="categoryDishController" class="ua.bogdangud.restaraunt.controllers.CategoryDishController">
+        <property name="dao" ref="categoryDao"/>
+    </bean>
+
+
+</beans>
