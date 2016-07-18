@@ -1,0 +1,35 @@
+.main-container {
+    width: 50%;
+    margin-left: 25%;
+    min-width: 500px;
+}
+
+.main-container div:not(.header) {
+    margin: 10px;
+}
+
+.header {
+    height: 40px;
+    background-color: yellowgreen;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.task-list {
+    width: 100%;
+
+}
+
+.task-list th {
+    text-align: left;
+}
+
+.button {
+
+}
+
+#todolist {
+    text-align: center;
+}
