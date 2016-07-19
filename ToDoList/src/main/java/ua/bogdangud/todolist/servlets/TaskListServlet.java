@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -16,16 +17,18 @@ public class TaskListServlet extends HttpServlet {
     private CopyOnWriteArrayList<Task> taskList = new CopyOnWriteArrayList<Task>();
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String action = req.getParameter("action");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setMaxInactiveInterval(600);
+        String action = request.getParameter("action");
         if ("add".equals(action)) {
-            addNewTask(req);
+            addNewTask(request);
         } else if ("update".equals(action)) {
-            checkIsCompleteTask(req);
+            checkIsCompleteTask(request);
         }
 
-        req.setAttribute("tasks", taskList);
-        req.getRequestDispatcher("tasklist.jsp").forward(req, resp);
+        session.setAttribute("tasks", taskList);
+        request.getRequestDispatcher("tasklist.jsp").forward(request, response);
     }
 
     private void addNewTask(HttpServletRequest request) {

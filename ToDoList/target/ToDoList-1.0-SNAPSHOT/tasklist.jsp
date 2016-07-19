@@ -19,6 +19,24 @@
     <hr>
 
     <div>
+        <table class="task-list">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+
+            </tr>
+            <c:set var="count" value="0"/>
+            <c:forEach items="${sessionScope.get(task)}" var="task" varStatus="taskLoop">
+
+                <tr>
+                    <td><c:out value="${task.name}"/></td>
+                    <td><c:out value="${task.category}"/></td>
+
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+    <div>
         <form action="taskServlet" method="post">
             <table class="task-list">
                 <tr>
@@ -56,6 +74,22 @@
 
 </div>
 
+<div>
+    <h2>HTTP Header Request Example</h2>
+    <table width="100%" border="1" align="center">
+        <tr bgcolor="#949494">
+            <th>Header Name</th>
+            <th>Header Value(s)</th>
+        </tr>
+        <c:forEach items="${header.keySet()}" var="headerName">
+            <tr>
+                <td><c:out value="${headerName}"/></td>
+                <td><c:out value="${header.get(headerName)}"/></td>
+            </tr>
+        </c:forEach>
 
+
+    </table>
+</div>
 </body>
 </html>
