@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd "
+
+       default-autowire="byName">
+
+
+
+    <bean id="employeeService" class="ua.bogdangud.restarauntrest.service.EmployeeService"/>
+    <bean id="employeeDao" class="ua.bogdangud.restarauntrest.dao.HEmployeeDao"/>
+
+    <bean id="dishService" class="ua.bogdangud.restarauntrest.service.DishService"/>
+    <bean id="dishDao" class="ua.bogdangud.restarauntrest.dao.HDishDao"/>
+
+
+
+
+
+
+
+</beans>
