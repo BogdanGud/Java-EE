@@ -20,7 +20,19 @@ public class DishService {
         return dishDao.getByName(dishName);
     }
 
+    @Transactional
+    public  void deleteDish (Integer dishId){
+        dishDao.deleteEntityById(dishId);
+    }
+
+    @Transactional
+    public void saveDish (Dish dish) {
+        dishDao.add(dish);
+    }
+
     public void setDishDao(HDishDao dishDao) {
         this.dishDao = dishDao;
     }
+
+
 }

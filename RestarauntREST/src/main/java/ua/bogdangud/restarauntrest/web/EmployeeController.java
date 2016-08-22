@@ -2,16 +2,16 @@ package ua.bogdangud.restarauntrest.web;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import ua.bogdangud.restarauntrest.model.Employee;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import ua.bogdangud.restarauntrest.service.EmployeeService;
 
-import java.util.List;
+import java.util.Map;
 
-@RestController
+@Controller
 public class EmployeeController {
     private EmployeeService employeeService;
 
@@ -31,20 +31,25 @@ public class EmployeeController {
 //    }
 
     @RequestMapping(value = "/employees", method = RequestMethod.GET)
-    public List<Employee> employee () {
-        return employeeService.getEmployees();
+    public String getEmployees (Map<String, Object> model ) {
+        model.put("employees", employeeService.getEmployees());
+        return "employees";
 
     }
 
-    @RequestMapping(value = "/employee/byname/{employeeName}", method = RequestMethod.GET)
-    public Employee employee (@PathVariable String employeeName) {
-        return employeeService.getEmployeeByName(employeeName);
+    @RequestMapping(value = "/employees-list", method = RequestMethod.GET)
+    public String getEmployeesList (Map<String, Object> model ) {
+        model.put("employees", employeeService.getEmployees());
+        return "employees-list";
 
     }
 
-    @RequestMapping(value = "/employee/byid/{employeeId}", method = RequestMethod.GET)
-    public Employee employee (@PathVariable Integer employeeId) {
-        return employeeService.getEmployeeById(employeeId);
+    @RequestMapping(value = "/employee", method = RequestMethod.GET)
+    public ModelAndView employee (@RequestParam ("employeeName") String employeeName) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("employee", employeeService.getEmployeeByName(employeeName));
+        modelAndView.setViewName("employee");
+        return modelAndView;
 
     }
 

@@ -1,0 +1,14 @@
+.form-row label {
+    width: 150px;
+    display: inline-block;
+}
+
+.form-container {
+    width: 350px;
+    float: right;
+}
+
+.main-container {
+    width: 600px;
+    float: left;
+}

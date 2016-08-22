@@ -31,4 +31,12 @@ public class EmployeeService {
     public void setEmployeeDao(HEmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
     }
+
+    public void deleteEmployee(Integer employeeId) {
+        employeeDao.deleteEntityById(employeeId);
+    }
+
+    public void saveEmployee(Employee employee) {
+        employeeDao.add(employee);
+    }
 }
