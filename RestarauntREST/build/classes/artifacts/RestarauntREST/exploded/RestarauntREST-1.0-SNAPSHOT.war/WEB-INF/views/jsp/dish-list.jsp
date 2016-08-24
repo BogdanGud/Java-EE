@@ -9,7 +9,6 @@
     <script src="<c:url value="/static/controllers/main-controller.js" />"></script>
     <link href="/static/main.css" rel="stylesheet"/>
 
-
 </head>
 <body ng-controller="DishController">
 <div class="main-container">
@@ -21,21 +20,22 @@
     <table>
         <thead>
         <tr>
-
             <th>Dish name</th>
             <th>Dish category</th>
-
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="dish in dishesList">
             <td>{{dish.dishName}}</td>
             <td>{{dish.categoryDish.categoryName}}</td>
-
-
             <td>
                 <button ng-click="deleteDish(dish.id)">
                     Delete
+                </button>
+            </td>
+            <td>
+                <button ng-click="editDish(dish)">
+                    Edit
                 </button>
             </td>
         </tr>
@@ -46,32 +46,32 @@
 <div class="form-container">
     <div class="form-row">
         <label>Name</label>
-        <input type="text" ng-model = "dish.dishName"/>
+        <input id="form-row-name" type="text" ng-model="dish.dishName"/>
     </div>
     <div class="form-row">
         <label>Price</label>
-        <input type="text" ng-model = "dish.price"/>
+        <input id="form-row-price" type="text" ng-model="dish.price"/>
     </div>
     <div class="form-row">
         <label>Weight</label>
-        <input type="text" ng-model = "dish.weight"/>
+        <input id="form-row-weight" type="text" ng-model="dish.weight"/>
     </div>
     <div class="form-row">
         <label>Category</label>
-        <select ng-model = "dish.categoryId">
-            <option value="1">SALAD</option>
+        <select id="form-row-category" ng-model="dish.categoryId">
+            <option selected value="1">SALAD</option>
             <option value="5">Soup</option>
         </select>
     </div>
-    <button ng-click = "saveDish()">
+    <input hidden id="form-row-id" type="text" ng-model="dish.id"/>
+    <button ng-click="saveDish()">
         Save
     </button>
-    <button ng-click = "clearFields()">
+    <button ng-click="clearFields()">
         Clear
     </button>
 
 </div>
-
 
 </body>
 </html>

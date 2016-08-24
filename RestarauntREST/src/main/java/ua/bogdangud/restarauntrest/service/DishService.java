@@ -21,6 +21,11 @@ public class DishService {
     }
 
     @Transactional
+    public Dish  getById(Integer id) {
+        return dishDao.getById(id);
+    }
+
+    @Transactional
     public  void deleteDish (Integer dishId){
         dishDao.deleteEntityById(dishId);
     }
@@ -28,6 +33,11 @@ public class DishService {
     @Transactional
     public void saveDish (Dish dish) {
         dishDao.add(dish);
+    }
+
+    @Transactional
+    public void updateDish (Dish dish) {
+        dishDao.updateEntity(dish);
     }
 
     public void setDishDao(HDishDao dishDao) {

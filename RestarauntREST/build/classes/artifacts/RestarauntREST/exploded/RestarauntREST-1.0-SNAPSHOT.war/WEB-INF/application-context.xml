@@ -13,6 +13,9 @@
     <bean id="dishService" class="ua.bogdangud.restarauntrest.service.DishService"/>
     <bean id="dishDao" class="ua.bogdangud.restarauntrest.dao.HDishDao"/>
 
+    <bean id="categoryDishService" class="ua.bogdangud.restarauntrest.service.CategoryDishService"/>
+    <bean id="categoryDishDao" class="ua.bogdangud.restarauntrest.dao.HCategoryDishDao"/>
+
 
 
 

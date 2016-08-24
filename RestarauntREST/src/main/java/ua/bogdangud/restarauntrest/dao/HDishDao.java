@@ -41,4 +41,12 @@ public class HDishDao extends AbstractDao<Dish> {
         query.setParameter("dishId", id);
         query.executeUpdate();
     }
+
+    @Transactional
+    public  void updateEntity(Dish newDish) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(newDish);
+
+    }
+
 }
