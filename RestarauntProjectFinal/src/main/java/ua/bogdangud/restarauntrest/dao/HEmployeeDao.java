@@ -42,4 +42,10 @@ public class HEmployeeDao extends AbstractDao<Employee> {
         query.setParameter("employeeId", id);
         query.executeUpdate();
     }
+
+    @Transactional
+    public  void updateEntity(Employee newEmployee) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(newEmployee);
+    }
 }

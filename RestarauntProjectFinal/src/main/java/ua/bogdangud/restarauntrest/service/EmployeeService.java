@@ -27,16 +27,25 @@ public class EmployeeService {
     }
 
 
-
+    @Transactional
     public void setEmployeeDao(HEmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
     }
 
+    @Transactional
     public void deleteEmployee(Integer employeeId) {
         employeeDao.deleteEntityById(employeeId);
     }
 
+    @Transactional
     public void saveEmployee(Employee employee) {
         employeeDao.add(employee);
     }
+
+    @Transactional
+    public void updateEmployee(Employee employee) {
+        employeeDao.updateEntity(employee);
+    }
+
+
 }

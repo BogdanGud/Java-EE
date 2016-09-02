@@ -6,29 +6,31 @@ import org.springframework.web.bind.annotation.*;
 import ua.bogdangud.restarauntrest.model.Employee;
 import ua.bogdangud.restarauntrest.model.Position;
 import ua.bogdangud.restarauntrest.service.EmployeeService;
+import ua.bogdangud.restarauntrest.service.PositionService;
 
 import java.util.List;
 
 @RestController
 public class RESTEmployeeController {
     private EmployeeService employeeService;
+    private PositionService positionService;
 
 
 
     @RequestMapping(value = "/api/employees", method = RequestMethod.GET)
-    public List<Employee> employee () {
+    public List<Employee> getEmployees() {
         return employeeService.getEmployees();
 
     }
 
     @RequestMapping(value = "/api/employee/byname/{employeeName}", method = RequestMethod.GET)
-    public Employee employee (@PathVariable String employeeName) {
+    public Employee getEmployees(@PathVariable String employeeName) {
         return employeeService.getEmployeeByName(employeeName);
 
     }
 
     @RequestMapping(value = "/api/employee/byid/{employeeId}", method = RequestMethod.GET)
-    public Employee employee (@PathVariable Integer employeeId) {
+    public Employee getEmployees(@PathVariable Integer employeeId) {
         return employeeService.getEmployeeById(employeeId);
 
     }
@@ -58,8 +60,29 @@ public class RESTEmployeeController {
 
     }
 
+
+    @RequestMapping(value = "/api/employee/", method = RequestMethod.PUT)
+    @ResponseBody
+    public void updateEmployee (@RequestBody CreateEditEmployeeViewModel employee) {
+        Employee existingEmployee = employeeService.getEmployeeById(employee.getId());
+        existingEmployee.setBirthDate(employee.getBirthDate());
+        existingEmployee.setSalary(employee.getSalary());
+        existingEmployee.setName(employee.getName());
+        existingEmployee.setSurname(employee.getSurname());
+        existingEmployee.setPhoneNumber(employee.getPhoneNumber());
+        Position position = positionService.getPosition(employee.getPositionId());
+        existingEmployee.setPosition(position);
+        employeeService.updateEmployee(existingEmployee);
+
+    }
+
     @Autowired
     public void setEmployeeService(EmployeeService employeeService) {
         this.employeeService = employeeService;
+    }
+
+    @Autowired
+    public void setPositionService(PositionService positionService) {
+        this.positionService = positionService;
     }
 }

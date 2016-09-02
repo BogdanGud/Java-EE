@@ -10,7 +10,7 @@ angular.module('dishModule.controllers', [])
             "categoryId" : 0
         };
         $scope.refreshDishList = function () {
-            $http.get("/api/dishes")
+            $http.get("/restaurant/api/dishes")
                 .then(function (response) {
                     // $scope.products = response.data;
                     console.log(response);
@@ -21,7 +21,7 @@ angular.module('dishModule.controllers', [])
 
         $scope.deleteDish = function (dishId) {
             console.log("removing ", dishId);
-            $http.delete("/api/dish/" + dishId)
+            $http.delete("/restaurant/api/dish/" + dishId)
                 .then(function (responce) {
                     console.log("Dish deleted");
                     $scope.refreshDishList();
@@ -34,7 +34,7 @@ angular.module('dishModule.controllers', [])
             if ($scope.dish.id != 0) {
                 
                 console.log($scope.dish);
-                $http.put("/api/dish/", $scope.dish)
+                $http.put("/restaurant/api/dish/", $scope.dish)
                     .then(
                         function(response){
                             console.log("Dish updated successfully")
@@ -46,7 +46,7 @@ angular.module('dishModule.controllers', [])
                     );
             }
             if ($scope.dish.id == 0) {
-                $http.post("/api/dish/", $scope.dish)
+                $http.post("/restaurant/api/dish/", $scope.dish)
                     .then(
                         function(response){
                             console.log("Dish created successfully")
