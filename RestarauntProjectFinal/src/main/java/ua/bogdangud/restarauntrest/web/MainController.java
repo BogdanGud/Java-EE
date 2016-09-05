@@ -16,5 +16,13 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping(value = "/contacts", method = RequestMethod.GET)
+    public String contacts( Map<String, Object> model) {
+
+        return "contacts";
+    }
+
+
+
 
 }

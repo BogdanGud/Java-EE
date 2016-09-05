@@ -2,19 +2,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Employees</title>
+    <title>Dishes</title>
 </head>
 <body>
 <table style="align-items: center">
     <tr>
-        <th>First name</th>
-        <th>Last name</th>
+        <th>Dishes name</th>
+
 
     </tr>
-    <c:forEach var="employee" items="${employees}" >
+    <c:forEach var="dish" items="${dishes}" >
         <tr>
-            <td><a href="/restaurant/employee?employeeName=${employee.name}">${employee.name}</a></td>
-            <td>${employee.surname}</td>
+            <td><a href="/restaurant/dish?dishName=${dish.dishName}">${dish.dishName}</a></td>
+
 
         </tr>
     </c:forEach>

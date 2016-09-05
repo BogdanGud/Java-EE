@@ -15,20 +15,7 @@ import java.util.Map;
 public class EmployeeController {
     private EmployeeService employeeService;
 
-//    @RequestMapping(value = "/employees", method = RequestMethod.GET)
-//    public String employees (Map<String, Object> model , @RequestParam(value = "take", required = false) Optional<Integer>  take) {
-//
-//        int newTake = !take.isPresent() || take.get() > employeeService.getEmployees().size() || take.get() < 0
-//                ? employeeService.getEmployees().size()
-//                : take.get();
-//
-//        model.put("employees", employeeService.getEmployees().subList(0, newTake));
-//
-//
-//        return "employees";
-//
-//        //return "index";
-//    }
+
 
     @RequestMapping(value = "/employees", method = RequestMethod.GET)
     public String getEmployees (Map<String, Object> model ) {
